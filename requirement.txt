@@ -1,4 +1,0 @@
-streamlit
-streamlit-pandas-profiling
-pandas-profiling
-pandas
