@@ -1,5 +1,5 @@
 import pandas as pd
-import openpyxl
+
 import pandas_profiling
 import streamlit as st
 from streamlit_pandas_profiling import st_profile_report
@@ -13,7 +13,7 @@ def file_uploader(file):
         return df
         
     elif fn.endswith('.xls') or fn.endswith('xlsx'):
-        df = pd.read_excel(file, engine=openpyxl)
+        df = pd.read_excel(file,  engine = 'openpyxl')
         return df
         
     elif fn.endswith('.txt'):
