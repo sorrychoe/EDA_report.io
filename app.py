@@ -14,7 +14,7 @@ def file_to_df(file):
         df = pd.read_csv(file)
         return df
         
-    elif fn.endswith('.xls') or fn.endswith('xlsx'):
+    elif fn.endswith('.xls') or fn.endswith('.xlsx'):
         df = pd.read_excel(file,  engine = 'openpyxl')
         return df
         
@@ -23,7 +23,8 @@ def file_to_df(file):
         return df
     
     else:
-        print('해당 파일은 업로드할 수 없습니다.')
+        message = "파일 업로드 불가"
+        st.exception(message)
         
 def main():          
     file = st.sidebar.file_uploader("데이터 파일을 업로드하시오.", type={"xlsx", "xls", "csv", "txt"})
