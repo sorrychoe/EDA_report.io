@@ -4,7 +4,9 @@ import pandas_profiling
 import streamlit as st
 from streamlit_pandas_profiling import st_profile_report
 
-def file_uploader(file):
+st.set_page_config(layout='wide')
+
+def file_to_df(file):
     
     fn = file.name
     
@@ -23,11 +25,11 @@ def file_uploader(file):
     else:
         print('해당 파일은 업로드할 수 없습니다.')
         
-def main():       
-    file = st.file_uploader("데이터 파일을 업로드하시오.", type={"xlsx", "xls", "csv", "txt"})
+def main():          
+    file = st.sidebar.file_uploader("데이터 파일을 업로드하시오.", type={"xlsx", "xls", "csv", "txt"})
     
     if file is not None:
-        df = file_uploader(file)     
+        df = file_to_df(file)     
         pr = df.profile_report()
         st_profile_report(pr)
 
